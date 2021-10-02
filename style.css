@@ -1,5 +1,7 @@
 .main-page {
+  display: flex;
   margin-top: 15vh;
+  flex-direction: column;
 }
 
 .player-icon {
@@ -25,4 +27,28 @@
   background-color: #0066cc;
   overflow: hidden;
   border-radius: 0;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.matchModal {
+  margin-top: .5vh;
+  margin-bottom: .5vh;
+  padding: .5vh;
+}
+
+.playerStats {
+  display: inline-block;
+  text-align: right;
+  position: relative;
+  right: 0;
+}
+
+.flexContainer {
+  display: flex;
+  align-content: center;
+  margin-top: 3px;
 }
