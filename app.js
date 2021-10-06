@@ -3,6 +3,8 @@ console.log('we linked')
 
 // The above is the openDota API which i have filtered into my personal recent matches
 
+const steamAPIKey = '4D137358374ADCEC09D5D78416DDFFA8'
+
 //players/{account_id}/matches
 
 //nav bar to select player (top) or perhaps just icon
@@ -32,18 +34,33 @@ $(() => {
           $playerKills = data[i].kills
           $playerDeaths = data[i].deaths
           $playerAssists = data[i].assists
-          $playerStats = $('<div>').addClass('playerStats').text(`${$playerKills} / ${$playerDeaths} / ${$playerAssists}`)
+        //  $playerStats = $('<span>').addClass('playerStats').text(`${$playerKills} / ${$playerDeaths} / //${$playerAssists}`)
 
           $matchDiv = $('<div>').addClass('flexContainer').appendTo($('.main-page'))
 
           $matchModal = $('<button>').addClass('matchModal').text(`Match: ${data[i].match_id}`).appendTo($matchDiv)
-          $matchDiv.append($playerStats)
+          //$matchDiv.append($playerStats)
 
-          $statsContainer = $('<div>').addClass('statsContainer').appendTo($matchModal)
+          $makeModal = $('<div>').addClass('modal').appendTo($matchDiv)
 
+          $modalContentKills = $('<span>').text(`Kills: ${$playerKills} `).appendTo($makeModal)
+          $modalContentDeaths = $('<span>').text(`Deaths: ${$playerDeaths} `).appendTo($makeModal)
+          $modalContentAssists = $('<span>').text(`Assists: ${$playerAssists} `).appendTo($makeModal)
+          $modalH1 = $('<h1>').text(`Match: ${data[i].match_id}`).prependTo($makeModal)
+          $modalCloseButton = $('<a>').attr('Class','close').attr('href','#').text('Close').appendTo($makeModal)
 
+          const $openMatch = $('.matchModal');
+          const $modal = $('.modal');
+          const $closeButton = $('.close');
 
-
+          const openModal = () => {
+            $modal.css('display','block')
+          }
+          const closeModal = () => {
+            $modal.css('display','none')
+          }
+          $openMatch.on('click', openModal)
+          $closeButton.on('click', closeModal)
 
 
           $gameDuration = (data[i].duration / 60)
@@ -53,6 +70,12 @@ $(() => {
       () => {
         console.log('Error: Bad Request')
       }
+      // $('matchModal').on('click', (e) => {
+      //   $.ajax({
+      //     url: 'https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key=4D137358374ADCEC09D5D78416DDFFA8'
+      //
+      //   })
+      // })
     })
 
 })

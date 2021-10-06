@@ -27,6 +27,7 @@
   background-color: #0066cc;
   overflow: hidden;
   border-radius: 0;
+  z-index: 1;
 }
 
 .statsContainer {
@@ -45,10 +46,28 @@
   text-align: right;
   position: relative;
   right: 0;
+  overflow: hidden;
 }
 
 .flexContainer {
   display: flex;
   align-content: center;
-  margin-top: 3px;
+  margin-top: .5vh;
+  width: 30vw;
+  flex-direction: column;
+
+}
+
+.modal {
+  background-color: orange;
+  position: fixed;
+  top: 15vh;
+  left: 33vw;
+  height: 50%;
+  width: 50%;
+  z-index: 1;
+  overflow: auto;
+  margin: 10vmax;
+  display: none;
+  border-radius: 1vmax;
 }
