@@ -42,30 +42,39 @@ $(() => {
           //$matchDiv.append($playerStats)
 
           $makeModal = $('<div>').addClass('modal').appendTo($matchDiv)
+          $gameDuration = (data[i].duration / 60)
 
-          $modalContentKills = $('<span>').text(`Kills: ${$playerKills} `).appendTo($makeModal)
-          $modalContentDeaths = $('<span>').text(`Deaths: ${$playerDeaths} `).appendTo($makeModal)
-          $modalContentAssists = $('<span>').text(`Assists: ${$playerAssists} `).appendTo($makeModal)
+          $modalContentKills = $('<p>').text(`Kills: ${$playerKills} `).appendTo($makeModal)
+          $modalContentDeaths = $('<p>').text(`Deaths: ${$playerDeaths} `).appendTo($makeModal)
+          $modalContentAssists = $('<p>').text(`Assists: ${$playerAssists} `).appendTo($makeModal)
+          modalContentDuration = $('<p>').text(`Duration: ${$gameDuration} `).appendTo($makeModal)
           $modalH1 = $('<h1>').text(`Match: ${data[i].match_id}`).prependTo($makeModal)
           $modalCloseButton = $('<a>').attr('Class','close').attr('href','#').text('Close').appendTo($makeModal)
 
-          const $openMatch = $('.matchModal');
-          const $modal = $('.modal');
-          const $closeButton = $('.close');
-
-          const openModal = () => {
-            $modal.css('display','block')
-          }
-          const closeModal = () => {
-            $modal.css('display','none')
-          }
-          $openMatch.on('click', openModal)
-          $closeButton.on('click', closeModal)
 
 
-          $gameDuration = (data[i].duration / 60)
+
+
 
         }
+        const $openMatch = $('.matchModal');
+
+        const $closeButton = $('.close');
+
+        const openModal = (e) => {
+          const $button = $(e.target);
+          const $modal = $button.siblings()
+          const $allModals = $('.modal');
+          $allModals.css('display','none')
+          $modal.css('display','block')
+        }
+        const closeModal = () => {
+          const $modal = $('.modal');
+          $modal.css('display','none')
+
+        }
+        $openMatch.on('click', openModal)
+        $closeButton.on('click', closeModal)
       }),
       () => {
         console.log('Error: Bad Request')
