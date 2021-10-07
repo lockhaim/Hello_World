@@ -30,8 +30,8 @@ $(() => {
       })
       .then((data) => {
         console.log(data)
-        for(let i=0; i < data.length; i++){
-          $playerKills = data[i].kills
+        for(let i=0; i < data.length; i++){      //runs a for loop equal to the specified number of matches
+          $playerKills = data[i].kills           //stores a number of stats in a variable
           $playerDeaths = data[i].deaths
           $playerAssists = data[i].assists
         //  $playerStats = $('<span>').addClass('playerStats').text(`${$playerKills} / ${$playerDeaths} / //${$playerAssists}`)
@@ -43,32 +43,28 @@ $(() => {
 
           $makeModal = $('<div>').addClass('modal').appendTo($matchDiv)
           $gameDuration = (data[i].duration / 60)
+          $gameDuration = $gameDuration.toFixed(2)
 
           $modalContentKills = $('<p>').text(`Kills: ${$playerKills} `).appendTo($makeModal)
           $modalContentDeaths = $('<p>').text(`Deaths: ${$playerDeaths} `).appendTo($makeModal)
           $modalContentAssists = $('<p>').text(`Assists: ${$playerAssists} `).appendTo($makeModal)
-          modalContentDuration = $('<p>').text(`Duration: ${$gameDuration} `).appendTo($makeModal)
+          modalContentDuration = $('<p>').text(`Duration: ${$gameDuration} minutes`).appendTo($makeModal)     //these are all appending the results, divs, buttons, etc. to the dom.
           $modalH1 = $('<h1>').text(`Match: ${data[i].match_id}`).prependTo($makeModal)
           $modalCloseButton = $('<a>').attr('Class','close').attr('href','#').text('Close').appendTo($makeModal)
 
-
-
-
-
-
         }
-        const $openMatch = $('.matchModal');
+        const $openMatch = $('.matchModal');  //listens to all things with the matchModal class
 
         const $closeButton = $('.close');
 
         const openModal = (e) => {
-          const $button = $(e.target);
-          const $modal = $button.siblings()
+          const $button = $(e.target);    //tells the computer which button is being clicked
+          const $modal = $button.siblings() //selects the sibling of the button clicked (the modal)
           const $allModals = $('.modal');
-          $allModals.css('display','none')
-          $modal.css('display','block')
+          $allModals.css('display','none')  //clears all modals from showing
+          $modal.css('display','block')    //only displays the modal selected
         }
-        const closeModal = () => {
+        const closeModal = () => {    //closes the modal via display none
           const $modal = $('.modal');
           $modal.css('display','none')
 

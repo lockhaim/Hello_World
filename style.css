@@ -1,21 +1,26 @@
 .main-page {
   display: flex;
-  margin-top: 15vh;
+  margin-top: 0;
+  margin-left: 0;
   flex-direction: column;
+}
+.main-container{
+  position: absolute;
+  margin-left: 0;
+  margin-top: 0;
 }
 
 .player-icon {
   height: 50px;
   width: 50px;
   border-radius: 12px;
-  border-color: #80bfff	;
+  border-color: #80bfff;
   border-width: 2px;
   border-style: solid;
   margin-left: 5vw;
   margin-right: 5vw;
   margin-top: .3vw;
   background-color: white;
-  filter: drop-shadow(25em,25em,25em, black);
 }
 
 .top-navBar {
@@ -24,10 +29,11 @@
   justify-content: center;
   width: 100vw;
   top: 0;
+  margin-left: -10px;
   background-color: #0066cc;
   overflow: hidden;
   border-radius: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
 .statsContainer {
@@ -37,7 +43,7 @@
 
 .matchModal {
   margin-top: .5vh;
-  margin-bottom: .5vh;
+  margin-bottom: 0vh;
   padding: .5vh;
 }
 
@@ -52,8 +58,8 @@
 .flexContainer {
   display: flex;
   align-content: center;
-  margin-top: .5vh;
-  width: 30vw;
+  top: -2vh;
+  width: 15vw;
   flex-direction: column;
 
 }
@@ -61,8 +67,8 @@
 .modal {
   background-color: orange;
   position: fixed;
-  top: 15vh;
-  left: 33vw;
+  top: 1vh;
+  left: 10vw;
   height: 50%;
   width: 50%;
   z-index: 1;
@@ -71,4 +77,21 @@
   display: none;
   border-radius: 1vmax;
   padding-left: 1vw;
+}
+
+.mainH1 {
+  margin-top: 8vh;
+  text-align: center;
+}
+
+.dotaLogo {
+  width: 35vw;
+
+  background-color: #0066cc;
+  position: absolute;
+  left: -50px;
+  top: 0;
+  z-index: 1;
+  height: 60px;
+  width: 25vmax;
 }
