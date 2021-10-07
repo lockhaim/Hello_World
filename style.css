@@ -95,3 +95,18 @@
   height: 60px;
   width: 25vmax;
 }
+
+
+@media (max-width: 600px) {
+  .dotaLogo {
+    width: 30px;
+    height: 10px;
+  }
+  .matchModal {
+    width: 30vw;
+  }
+  .modal {
+    margin: 15vh;
+    height: 40vh;
+  }
+}
