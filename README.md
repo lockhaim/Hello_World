@@ -32,9 +32,9 @@ loop and displays it. When another match is selected it tells the computer to
 hide that modal and then open the one selected so that all of them are not opening at once.
 
 ///INSTRUCTIONS TO RUN///
-1. Download the program form git hub.
+1. Download the program from git hub.
 2. Open index.html.
-3. Click a player icon in the top.
+3. Click a player icon in the top. Inly 3 pre-assigned players have been provided as a proof of concept
 4. Specify the number of games to pull.
 5. Click on whichever match you would like to see the stats for!
 
