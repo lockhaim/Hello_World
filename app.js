@@ -34,6 +34,7 @@ $(() => {
           $playerKills = data[i].kills           //stores a number of stats in a variable
           $playerDeaths = data[i].deaths
           $playerAssists = data[i].assists
+          $gameWin = data[i].radiant_win
         //  $playerStats = $('<span>').addClass('playerStats').text(`${$playerKills} / ${$playerDeaths} / //${$playerAssists}`)
 
           $matchDiv = $('<div>').addClass('flexContainer').appendTo($('.main-page'))
@@ -44,7 +45,7 @@ $(() => {
           $makeModal = $('<div>').addClass('modal').appendTo($matchDiv)
           $gameDuration = (data[i].duration / 60)
           $gameDuration = $gameDuration.toFixed(2)
-
+          $modalWin = $('<p>').text(`Win: ${$gameWin}`).appendTo($makeModal)
           $modalContentKills = $('<p>').text(`Kills: ${$playerKills} `).appendTo($makeModal)
           $modalContentDeaths = $('<p>').text(`Deaths: ${$playerDeaths} `).appendTo($makeModal)
           $modalContentAssists = $('<p>').text(`Assists: ${$playerAssists} `).appendTo($makeModal)
